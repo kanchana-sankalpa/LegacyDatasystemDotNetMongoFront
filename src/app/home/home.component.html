@@ -9,4 +9,28 @@
             <li>{{userFromApi.fullName}} </li>
         </ul>
     </div>
+    
+</div>
+<div class="card mt-4 list-horizontal">
+    <h4 class="card-header">Home</h4>
+    <div class="card-body">
+        <form [formGroup]="form" (ngSubmit)="submit()">
+            <div class="form-group">
+                <label for="value">Value :</label>
+                <input 
+                    formControlName="value"
+                    id="value" 
+                    type="text" 
+                    class="form-control">
+                <div *ngIf="f.value.touched && f.value.invalid" class="alert alert-danger">
+                    <div *ngIf="f.value.errors.required">value is required.</div>
+                </div>
+            </div>
+      
+            <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit</button>
+        </form>
+    </div>
+    <div>
+        <dynamictable2></dynamictable2>
+    </div>
 </div>

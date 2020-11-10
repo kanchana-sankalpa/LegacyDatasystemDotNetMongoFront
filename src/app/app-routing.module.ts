@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './home';
+//import { SearchComponent } from './search';
 import { AdminComponent } from './admin';
 import { LoginComponent } from './login';
 import { AuthGuard } from './_helpers';
@@ -13,6 +14,11 @@ const routes: Routes = [
         component: HomeComponent,
         canActivate: [AuthGuard]
     },
+  /*   {
+        path: 'search',
+        component: SearchComponent,
+        canActivate: [AuthGuard]
+    }, */
     {
         path: 'admin',
         component: AdminComponent,
