@@ -28,9 +28,10 @@
             </div>
       
             <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit</button>
+           
         </form>
     </div>
     <div>
-        <dynamictable2></dynamictable2>
+        <dynamictable2 *ngIf="loadComponent" [datalist]="datalist" > </dynamictable2>
     </div>
 </div>

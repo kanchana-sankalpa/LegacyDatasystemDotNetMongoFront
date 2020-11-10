@@ -13,11 +13,13 @@ import {DynamicTableComponent} from '../dynamictable';
 
 
 export class HomeComponent {
-    loading = false;
+  loading = false;
     user: User;
     userFromApi: User;
     form: FormGroup;
     temp;
+    datalist:any;
+    loadComponent=false;
     
 
     constructor(
@@ -30,6 +32,7 @@ export class HomeComponent {
 
     ngOnInit() {
         this.loading = true;
+        this.loadComponent = false;
         console.log(this.user);
         this.userService.getById(this.user.userId).pipe(first()).subscribe(user => {
             this.loading = false;
@@ -58,6 +61,8 @@ export class HomeComponent {
             //console.log(response);
             this.temp= response[4].data;
             console.log(this.temp);
+            this.datalist= response[4].data;
+            this.loadComponent = true;
             // Fires if new data is received from the server. Use response to update your client side data table
         });
     }

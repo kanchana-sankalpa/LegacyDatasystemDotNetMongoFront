@@ -1,7 +1,6 @@
-﻿import { Component, OnInit, ViewChild } from '@angular/core';
+﻿import { Input } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-//import { MatTableDataSource } from '@angular/material/table';
-
 
   
 const inputData: any = 
@@ -19,19 +18,25 @@ export class DynamicTable2Component
   displayedColumns: string[]; 
   dataSource: MatTableDataSource<any>;
 
-  //@ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
-  //@ViewChild(MatSort, {static: true}) sort: MatSort;
+  @Input() datalist : any;
+
+//@ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+//@ViewChild(MatSort, {static: true}) sort: MatSort;
 
   constructor() {
     // pringing data to console 
-    console.log(JSON.stringify(inputData)); 
-    this.displayedColumns = Object.keys(inputData[0]);
-    this.dataSource = new MatTableDataSource(inputData);
+  //  console.log(JSON.stringify(inputData)); 
+   console.log(JSON.stringify(this.datalist)); 
+   //this.displayedColumns = Object.keys(datalist[0]);
+    //this.dataSource = new MatTableDataSource(datalist);
   }
 
   ngOnInit() {
    // this.dataSource.paginator = this.paginator;
     //this.dataSource.sort = this.sort;
+    console.log(JSON.stringify(this.datalist)); 
+    this.displayedColumns = Object.keys(this.datalist[0]);
+    this.dataSource = new MatTableDataSource(this.datalist);
   }
 
   applyFilter(filterValue: string) {

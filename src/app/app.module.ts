@@ -21,6 +21,7 @@ import {DynamicTableComponent} from './dynamictable';
 import { MatTableModule } from '@angular/material/table' 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+
 import {DynamicTable2Component} from './dynamictable2';
 
 //import { DynamictableComponent } from './dynamictable/dynamictable.component';
@@ -34,7 +35,8 @@ import {DynamicTable2Component} from './dynamictable2';
         MatFormFieldModule,
         MatInputModule,
         MatTableModule  ],
-  exports:[ MatTableModule ]
+  exports:[ MatTableModule, MatFormFieldModule,
+    MatInputModule ]
 ,
     declarations: [
         AppComponent,
