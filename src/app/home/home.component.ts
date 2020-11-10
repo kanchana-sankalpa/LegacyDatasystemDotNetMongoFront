@@ -5,6 +5,7 @@ import { User } from '@app/_models';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
 import { UserService, AuthenticationService,SearchService } from '@app/_services';
 import {DynamicTableComponent} from '../dynamictable';
+import { MatTabsModule } from '@angular/material/tabs';
 
 
 @Component(
@@ -20,6 +21,8 @@ export class HomeComponent {
     temp;
     datalist:any;
     loadComponent=false;
+    tabs = ['First', 'Second', 'Third'];
+    returnresponse:any;
     
 
     constructor(
@@ -58,9 +61,10 @@ export class HomeComponent {
           }) */
           var formvavlue=this.form.value.value;
           this.searchService.getDataWithObservable("text",formvavlue).subscribe(response => {
-            //console.log(response);
+            console.log(response);
+            this.returnresponse=response;
             this.temp= response[4].data;
-            console.log(this.temp);
+           // console.log(this.temp);
             this.datalist= response[4].data;
             this.loadComponent = true;
             // Fires if new data is received from the server. Use response to update your client side data table

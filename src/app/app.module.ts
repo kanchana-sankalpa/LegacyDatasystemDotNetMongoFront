@@ -21,6 +21,7 @@ import {DynamicTableComponent} from './dynamictable';
 import { MatTableModule } from '@angular/material/table' 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatTabsModule } from '@angular/material/tabs';
 
 import {DynamicTable2Component} from './dynamictable2';
 
@@ -31,12 +32,12 @@ import {DynamicTable2Component} from './dynamictable2';
         ReactiveFormsModule,
         HttpClientModule,
         AppRoutingModule,
-        BrowserAnimationsModule ,
         MatFormFieldModule,
         MatInputModule,
-        MatTableModule  ],
+        MatTableModule,
+        MatTabsModule,  BrowserAnimationsModule   ],
   exports:[ MatTableModule, MatFormFieldModule,
-    MatInputModule ]
+    MatInputModule,MatTabsModule,BrowserAnimationsModule ]
 ,
     declarations: [
         AppComponent,

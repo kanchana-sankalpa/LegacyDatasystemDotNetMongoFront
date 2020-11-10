@@ -26,18 +26,20 @@ export class DynamicTable2Component
   constructor() {
     // pringing data to console 
   //  console.log(JSON.stringify(inputData)); 
-   console.log(JSON.stringify(this.datalist)); 
-   //this.displayedColumns = Object.keys(datalist[0]);
-    //this.dataSource = new MatTableDataSource(datalist);
+  console.log('constructor'); 
+   //console.log(JSON.stringify(this.datalist)); 
   }
 
   ngOnInit() {
    // this.dataSource.paginator = this.paginator;
     //this.dataSource.sort = this.sort;
-    console.log(JSON.stringify(this.datalist)); 
-    this.displayedColumns = Object.keys(this.datalist[0]);
-    this.dataSource = new MatTableDataSource(this.datalist);
-  }
+    console.log('ngOnInit'); 
+    //console.log(JSON.stringify(this.datalist)); 
+    if(this.datalist.length>0){
+      this.displayedColumns = Object.keys(this.datalist[0]);
+      this.dataSource = new MatTableDataSource(this.datalist);
+    }
+   }
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();

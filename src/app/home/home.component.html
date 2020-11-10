@@ -31,7 +31,24 @@
            
         </form>
     </div>
-    <div>
-        <dynamictable2 *ngIf="loadComponent" [datalist]="datalist" > </dynamictable2>
+<div>
+<mat-tab-group *ngIf="loadComponent" >
+  <mat-tab   *ngFor="let tab of returnresponse; " [label]="tab.schemaDatasetName">
+    <div ng-if="tab.data.length > 0">
+        <dynamictable2  [datalist]="tab.data" > </dynamictable2>
     </div>
+    <div ng-if="!tab.data?.length > 0">
+        <label for="resultslbl">No data matched the search criteria!</label>
+    </div>
+  <!-- Contents for {{tab}} tab
+  <button mat-raised-button
+            class="example-delete-tab-button"
+            [disabled]="tabs.length === 1"
+            (click)="removeTab(index)">
+      Delete Tab
+    </button> -->
+  </mat-tab>
+</mat-tab-group>
+</div>
+   
 </div>
