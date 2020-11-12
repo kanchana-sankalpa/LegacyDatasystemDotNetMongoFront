@@ -5,7 +5,17 @@
         <p class="mb-1">All users from secure (admin only) api end point:</p>
         <div *ngIf="loading" class="spinner-border spinner-border-sm"></div>
         <ul *ngIf="users">
-            <li *ngFor="let user of users">{{user.firstName}} {{user.lastName}}</li>
+            <li *ngFor="let user of users">{{user.fullName}} </li>
         </ul>
     </div>
 </div>
+<div class="card mt-4 list-horizontal">
+    <h4 class="card-header">Index</h4>
+    <div class="card-body">
+        <form [formGroup]="form" (ngSubmit)="submit()">
+      
+            <button class="btn btn-primary" type="submit" [disabled]="!form.valid">CreateTextIndex</button>
+           
+        </form>
+    </div>
+<div>

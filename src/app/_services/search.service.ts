@@ -8,14 +8,13 @@ import { Observable } from 'rxjs/internal/Observable';
 @Injectable({ providedIn: 'root' })
 export class SearchService {
     constructor(private http: HttpClient) { }
-
-
-    searchext(text: string) {
-        console.log(text);
-       // return this.http.get(`${environment.apiUrl}/search/text/${text}`).pipe(
+   // return this.http.get(`${environment.apiUrl}/search/text/${text}`).pipe(
        //     catchError(this.errorHandler)
        //   );
 
+    searchext(text: string) {
+        console.log(text);
+    
        return this.http.get(`${environment.apiUrl}/search/text/${text}`).pipe(
         map(response => {
             return response;

@@ -18,10 +18,12 @@ import { HomeComponent } from './home';
 import { AdminComponent } from './admin';
 import { LoginComponent } from './login';
 import {DynamicTableComponent} from './dynamictable';
-import { MatTableModule } from '@angular/material/table' 
+import { MatTableModule } from '@angular/material/table' ;
+import {MatPaginator} from '@angular/material/paginator';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatTabsModule } from '@angular/material/tabs';
+
 
 import {DynamicTable2Component} from './dynamictable2';
 
@@ -37,7 +39,7 @@ import {DynamicTable2Component} from './dynamictable2';
         MatTableModule,
         MatTabsModule,  BrowserAnimationsModule   ],
   exports:[ MatTableModule, MatFormFieldModule,
-    MatInputModule,MatTabsModule,BrowserAnimationsModule ]
+    MatInputModule,MatTabsModule,  BrowserAnimationsModule ]
 ,
     declarations: [
         AppComponent,

@@ -1,7 +1,7 @@
 ﻿import { Component, NgModule } from '@angular/core';
 import { first } from 'rxjs/operators';
 
-import { User } from '@app/_models';
+import { RoleModel, User } from '@app/_models';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
 import { UserService, AuthenticationService,SearchService } from '@app/_services';
 import {DynamicTableComponent} from '../dynamictable';
@@ -23,6 +23,7 @@ export class HomeComponent {
     loadComponent=false;
     tabs = ['First', 'Second', 'Third'];
     returnresponse:any;
+    roles: RoleModel[] = [];
     
 
     constructor(
@@ -42,6 +43,12 @@ export class HomeComponent {
             this.userFromApi = user;
         });
 
+        this.loading = true;
+        this.userService.getUserRoles().pipe(first()).subscribe(roles => {
+            this.loading = false;
+            this.roles = roles;
+            console.log(this.roles);
+        });
       
         
 
@@ -60,14 +67,19 @@ export class HomeComponent {
                this.router.navigateByUrl('newitem/index');
           }) */
           var formvavlue=this.form.value.value;
+          this.loading = true;
           this.searchService.getDataWithObservable("text",formvavlue).subscribe(response => {
             console.log(response);
             this.returnresponse=response;
-            this.temp= response[4].data;
+            this.loading = false;
+            //this.temp= response[4].data;
            // console.log(this.temp);
-            this.datalist= response[4].data;
+           // this.datalist= response[4].data;
             this.loadComponent = true;
             // Fires if new data is received from the server. Use response to update your client side data table
+            if(response.length==0){
+              alert('No Data Found!');
+             }
         });
     }
 }

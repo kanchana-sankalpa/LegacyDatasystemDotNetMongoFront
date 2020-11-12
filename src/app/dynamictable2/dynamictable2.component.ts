@@ -1,6 +1,7 @@
 ﻿import { Input } from '@angular/core';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild,AfterViewInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+//import {MatPaginator} from '@angular/material/paginator';
 
   
 const inputData: any = 
@@ -13,7 +14,7 @@ const inputData: any =
   styleUrls: ['dynamictable2.component.css'],
   templateUrl: './dynamictable2.component.html'
 })
-export class DynamicTable2Component
+export class DynamicTable2Component implements AfterViewInit 
 {
   displayedColumns: string[]; 
   dataSource: MatTableDataSource<any>;
@@ -22,6 +23,12 @@ export class DynamicTable2Component
 
 //@ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 //@ViewChild(MatSort, {static: true}) sort: MatSort;
+
+//@ViewChild(MatPaginator) paginator: MatPaginator;
+
+ngAfterViewInit() {
+ // this.dataSource.paginator = this.paginator;
+}
 
   constructor() {
     // pringing data to console 
