@@ -23,7 +23,6 @@ export class DynamicTable2Component implements AfterViewInit
 
 //@ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 //@ViewChild(MatSort, {static: true}) sort: MatSort;
-
 //@ViewChild(MatPaginator) paginator: MatPaginator;
 
 ngAfterViewInit() {
