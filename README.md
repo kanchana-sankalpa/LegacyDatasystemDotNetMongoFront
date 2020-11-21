@@ -8,4 +8,4 @@ URL for .Net C# backend service application developed using C# MongoDB driver.
 https://github.com/kanchana-sankalpa/LegacyDatasystemDotNetMongoB
 
 # Getting started
-Clone the project and run npm install and npm start in the project folder after setup the backend service application.
+Clone the project and run npm install and npm start in the project folder. Make sure the backend service application executing.
